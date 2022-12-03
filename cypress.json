@@ -1,0 +1,26 @@
+{
+    "reporter": "mochawesome",
+    "reporterOptions": {
+        "charts": true
+      },
+  "baseUrl": "https://www.saucedemo.com/",
+  "projectId": "7s5okt",
+  "integrationFolder": "cypress/integration",
+  "viewportHeight": 1000,
+  "viewportWidth": 1280,
+  "retries": {
+    "runMode": 2,
+    "openMode": 1
+  },
+  "env": {
+    "user1": {
+      "username": "standard_user",
+      "password": "secret_sauce"
+    },
+    "user2": {
+      "username": "test",
+      "password": "test123"
+    }
+  },
+  "chromeWebSecurity": false
+}
