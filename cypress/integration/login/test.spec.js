@@ -1,5 +1,6 @@
 import{loginPageErrors,loginPage} from '../../fixtures/constLoginPage'
 import{LogInForm} from '../../support/pom_objects/LogInPage'
+import{BurgerButton} from '../../support/pom_objects/SideBar'
 const user1= Cypress.env('user1')
 const user2= Cypress.env('user2')
 describe('Login Page suite',()=>{
@@ -42,9 +43,9 @@ describe('Login Page suite',()=>{
     })
     it('7. Logout',()=>{
         cy.loginUser(user1.username, user1.password)
-        cy.get('#react-burger-menu-btn').click()
-        cy.get('#logout_sidebar_link').click({force: true})
-        cy.get('[data-test="login-button"]').contains(loginPage.logIn)
+        cy.get(BurgerButton.burgerBtn).click()
+        cy.get(BurgerButton.logOutBtn).click({force: true})
+        cy.get(LogInForm.logInBtn).contains(loginPage.logIn)
         
     })
 })
