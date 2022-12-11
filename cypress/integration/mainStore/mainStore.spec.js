@@ -15,18 +15,17 @@ describe('Store items',()=>{
         cy.preserveCookieOnce('session-username')
     
     cy.restoreLocalStorage()
+    cy.loginUser(user1.username, user1.password)
    
     });
     afterEach(() => {
         cy.saveLocalStorage()
       })
     it('1. Login succesufully',()=>{
-        cy.loginUser(user1.username, user1.password)
         cy.url().should('equal', 'https://www.saucedemo.com/inventory.html')
     })
 
     it('Sort items by price', ()=>{
-        cy.loginUser(user1.username, user1.password)
         cy.get(HeaderBtn.sortBtn)
         .select('lohi')
         cy.get(HeaderBtn.sortBtn)
@@ -34,7 +33,6 @@ describe('Store items',()=>{
     })
    
     it('Add item to cart',()=>{
-        cy.loginUser(user1.username, user1.password)
         cy.get(AddItemBtns.addBackpack).click()
         cy.get(RemoveItemBtns.removeBackpacke).should("contain","Remove")
         cy.get(AddItemBtns.addBoltT).click()
@@ -44,8 +42,7 @@ describe('Store items',()=>{
         .should("contain","2")
           
     })
-    it.only('Checkout', () => {
-        cy.loginUser(user1.username, user1.password)
+    it('Checkout', () => {
         cy.get(HeaderBtn.cartLink).click()
         cy.get(Checkout.checkoutBtn).click()
 
@@ -60,7 +57,6 @@ describe('Store items',()=>{
   
         
   it('Log out', () => {
-    cy.loginUser(user1.username, user1.password)
     cy.logoutUser()
   })
         
