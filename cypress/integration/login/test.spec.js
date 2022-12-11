@@ -5,7 +5,7 @@ const user1= Cypress.env('user1')
 const user2= Cypress.env('user2')
 describe('Login Page suite',()=>{
 
-    beforeEach('Visit our application.', ()=> {
+    beforeEach('Visit our app.', ()=> {
         cy.visit('/');
     });
 
@@ -43,9 +43,7 @@ describe('Login Page suite',()=>{
     })
     it('7. Logout',()=>{
         cy.loginUser(user1.username, user1.password)
-        cy.get(BurgerButton.burgerBtn).click()
-        cy.get(BurgerButton.logOutBtn).click({force: true})
-        cy.get(LogInForm.logInBtn).contains(loginPage.logIn)
+        cy.logoutUser()
         
     })
 })

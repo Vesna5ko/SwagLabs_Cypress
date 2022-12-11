@@ -24,8 +24,18 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 Cypress.Commands.add("loginUser", (username, password) => {
-    cy.get('#user-name').type(username);
-    cy.get('#password').type(password);
+    cy.get('[data-test="username"]').type(username);
+    cy.get('[data-test="password"]').type(password);
     cy.get('[data-test="login-button"]').click();
   
   });
+  Cypress.Commands.add("logoutUser", () => {
+    cy.get('#react-burger-menu-btn')
+      .click()
+    cy.get('#logout_sidebar_link')
+      .click({force:true})
+    // confirm landing page
+    cy.url().should('equal', 'https://www.saucedemo.com/')
+  
+  });
+  

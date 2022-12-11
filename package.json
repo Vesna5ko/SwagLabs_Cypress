@@ -11,6 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "cypress": "^9.7.0",
+    "cypress-localstorage-commands": "^2.2.1",
+    "cypress-v10-preserve-cookie": "^1.2.1",
     "mochawesome": "^7.1.3"
   }
 }
